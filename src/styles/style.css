@@ -1,0 +1,54 @@
+
+header {
+
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style: none;
+    text-decoration: none;
+}
+main {
+    height: 500px;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+form {
+    text-align: center;
+}
+
+
+body {
+    background-color: rgb(98, 98, 199);
+
+}
+
+input {
+    margin-top: 30px;
+    border-radius: 20px;
+    border-color: blue;
+    height: 30px;
+    width: 200px;
+    background-color: blue;
+    color: white;
+}
+
+.submit {
+    width: 120px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}
