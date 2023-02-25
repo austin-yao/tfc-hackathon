@@ -1,0 +1,9 @@
+{
+  "rds_host": "hackathon.czqw02dfjhzq.us-east-2.rds.amazonaws.com",
+  "rds_port": "3306",
+  "rds_user": "hackathon",
+  "rds_password" : "testtest",
+  "rds_db": "LOCATIONS_DB",
+  "server_host": "localhost",
+  "server_port":"8080"
+}
