@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 
 import App from './App.js'
 import Feedback from './Feedback.js'
-import Nav from './Nav'
+import Navigation from './Nav'
+import Footer from './Footer'
 
 const Main = () => {
     const [feedback, setFeedback] = useState(false)
@@ -13,7 +14,8 @@ const Main = () => {
     }
     return (
         <div>
-            <Nav />
+            <Navigation />
+            <Footer />
         </div>
     )
 }
