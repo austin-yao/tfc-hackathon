@@ -16,20 +16,21 @@ const App = () => {
 
   const pullData = () => {
     axios
-      .get('http://localhost:8000/Zip_Code', { params: { Zip_Code: zipCode } })
+      .get(`http://localhost:8000/`)
       .then((response) => {
         console.log(response)
+        return (<div><h1>Hello</h1></div>)
       }).catch((error) => {
         console.log(error)
+        return (<div><h1>Fail</h1></div>)
       })
-    return (<div><h1>Hello</h1></div>)
   }
 
   const handleBackChange = () => {
     setZipCode(0)
   }
 
-  if (zipCode < 10000) {
+  if (zipCode < 1000) {
     display = (<form onSubmit={submit}>
       <div className="form-group">
         <label for="Zip_code">Enter Zip Code: </label>
