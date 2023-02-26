@@ -10,6 +10,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Main from './Main'
 import Feedback from './Feedback'
 import App from './App'
+import CheckIn from './CheckIn'
+import Login from './Login'
 
 
 const Navigation = () => {
@@ -29,10 +31,13 @@ const Navigation = () => {
                                 <Link style={padding} to='/'>Home</Link>
                             </Nav.Link>
                             <Nav.Link href="#" as="span">
-                                <Link style={padding} to='/help'>Help</Link>
+                                <Link style={padding} to='/checkin'>Check In</Link>
                             </Nav.Link>
                             <Nav.Link href="#" as="span">
                                 <Link style={padding} to='/contact'>Contact</Link>
+                            </Nav.Link>
+                            <Nav.Link href="#" as="span">
+                                <Link style={padding} to='/login'>Volunteer Login</Link>
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
@@ -40,8 +45,9 @@ const Navigation = () => {
             </div>
             <Routes>
                 <Route path='/' element={<App />}></Route>
-                <Route path='/help' element={<App />}></Route>
+                <Route path='/checkin' element={<CheckIn />}></Route>
                 <Route path='/contact' element={<Feedback />}></Route>
+                <Route path='/login' element={<Login />}></Route>
             </Routes>
         </Router>
     )

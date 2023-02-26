@@ -1,12 +1,16 @@
 // import './styles/style.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import map from './deps/mapsnathan.jpeg'
+import GoogleMapReact from 'google-map-react';
+import { Container } from 'react-bootstrap'
 
 const App = () => {
   const x = 3
   const [zipCode, setZipCode] = useState(0)
 
-  let display
+  let display = null
+  const [display2, setDisplay2] = useState(null)
 
   const submit = (event) => {
     event.preventDefault()
@@ -14,20 +18,31 @@ const App = () => {
     setZipCode(Number(event.target.zipcode.value))
   }
 
-  const pullData = () => {
-    axios
-      .get(`http://localhost:8000/`)
-      .then((response) => {
-        console.log(response)
-        return (<div><h1>Hello</h1></div>)
-      }).catch((error) => {
-        console.log(error)
-        return (<div><h1>Fail</h1></div>)
-      })
-  }
+  useEffect(() => {
+    if (zipCode > 1000) {
+      const url = `http://localhost:8080/Zip_code/${zipCode}`
+      console.log(url)
+      axios
+        .get(url)
+        .then((response) => {
+          console.log(23)
+          console.log(response.data)
+          setDisplay2(<div className="container"><ul> {response.data.map(loc => <li><b>{loc.name}</b><br /> Wait Time: {loc.Wait_time} minutes</li>)} </ul><img src={map} width="600" height="600" /></div>)
+        }).catch((error) => {
+          console.log("HERE")
+          console.log(error)
+          setDisplay2(<div><h1>Fail</h1></div>)
+        })
+    } else {
+      setDisplay2(null)
+    }
+  }, [zipCode])
+
+
 
   const handleBackChange = () => {
     setZipCode(0)
+    setDisplay2(null)
   }
 
   if (zipCode < 1000) {
@@ -38,17 +53,14 @@ const App = () => {
         <button class="btn btn-primary" type="submit">Submit</button>
       </div>
     </form>)
-  } else {
-    console.log(zipCode)
-    display = pullData()
   }
 
   return (
     <div className="container">
       <h1>Welcome!</h1>
       {display}
-      {console.log(zipCode)}
-      {zipCode > 9999 &&
+      {display2}
+      {zipCode > 1000 &&
         <button class="btn btn-primary" onClick={handleBackChange}>Back</button>
       }
     </div >
