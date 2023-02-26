@@ -1,8 +1,12 @@
 // import './styles/style.css'
+import './styles/map.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import map from './deps/mapsnathan.jpeg'
+import Map from './Map.js'
 import GoogleMapReact from 'google-map-react';
+import { Icon } from '@iconify/react'
+import locationIcon from '@iconify/icons-mdi/map-marker'
 import { Container } from 'react-bootstrap'
 
 const App = () => {
@@ -27,7 +31,7 @@ const App = () => {
         .then((response) => {
           console.log(23)
           console.log(response.data)
-          setDisplay2(<div className="container"><ul> {response.data.map(loc => <li><b>{loc.name}</b><br /> Wait Time: {loc.Wait_time} minutes</li>)} </ul><img src={map} width="600" height="600" /></div>)
+          setDisplay2(<div className="container"><ul> {response.data.map(loc => <li><b>{loc.name}</b><br /> Wait Time: {loc.Wait_time} minutes</li>)} </ul><Map locations={response.data} /></div>)
         }).catch((error) => {
           console.log("HERE")
           console.log(error)
