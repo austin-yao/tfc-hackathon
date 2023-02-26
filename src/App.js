@@ -15,11 +15,13 @@ const App = () => {
   }
 
   const pullData = () => {
-    // axios .get('http://localhost:8000', { params: { zipcode: zipCode } }).then((response) => {
-    // list of locations and wait-times. need to put onto google maps API
-    // }).catch((error) => {
-    // console.log(error)
-    // })
+    axios
+      .get('http://localhost:8000/Zip_Code', { params: { Zip_Code: zipCode } })
+      .then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      })
     return (<div><h1>Hello</h1></div>)
   }
 
